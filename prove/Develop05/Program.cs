@@ -39,4 +39,7 @@ class Program
             }
         }
     }
+
+    // I included a logging functionality in base.cs, this will log the activity name,date/time, and duration
+    //to the file activity_log.txt after each activity is completed.
 }
