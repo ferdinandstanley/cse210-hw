@@ -24,7 +24,18 @@ abstract class Activity
         Console.WriteLine("Well done!");
         ShowSpinner(3); 
         Console.WriteLine($"You completed the {GetActivityName()} for {duration} seconds.");
+        LogActivity(); 
         ShowSpinner(3);
+    }
+
+    // To log the activity details
+    private void LogActivity()
+    {
+        string logMessage = $"{DateTime.Now}: Completed {GetActivityName()} for {duration} seconds.";
+        using (StreamWriter sw = new StreamWriter("activity_log.txt", true))
+        {
+            sw.WriteLine(logMessage);
+        }
     }
 
     protected abstract string GetActivityName();
